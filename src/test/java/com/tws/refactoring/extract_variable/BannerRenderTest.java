@@ -1,4 +1,4 @@
-package com.tws.refactoring.extract_method;
+package com.tws.refactoring.extract_variable;
 
 import com.tws.refactoring.extract_variable.BannerRender;
 import org.junit.Test;
