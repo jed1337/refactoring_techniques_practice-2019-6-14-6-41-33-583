@@ -1,15 +1,22 @@
 package com.tws.refactoring.extract_variable;
 
+import org.junit.Before;
 import org.junit.Test;
 
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.*;
 
 public class PriceCalculatorTest {
+    private PriceCalculator priceCalculator;
+
+    @Before
+    public void priceCalculator() {
+        //given
+        priceCalculator = new PriceCalculator();
+    }
+
     @Test
     public void getPrice() {
-        //given
-        PriceCalculator priceCalculator = new PriceCalculator();
         //when
         double price = priceCalculator.getPrice(20, 30);
         //test
@@ -18,8 +25,6 @@ public class PriceCalculatorTest {
 
     @Test
     public void getPrice2() {
-        //given
-        PriceCalculator priceCalculator = new PriceCalculator();
         //when
         double price = priceCalculator.getPrice(25, 50);
         //test
