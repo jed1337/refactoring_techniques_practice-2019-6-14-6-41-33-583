@@ -14,6 +14,8 @@ import java.util.List;
 import static org.junit.Assert.*;
 
 public class OwingPrinterTest {
+    private static final String LINE_SEPARATOR = System.lineSeparator();
+
     private final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
     private final PrintStream originalOut = System.out;
 
@@ -30,9 +32,9 @@ public class OwingPrinterTest {
     @Test
     public void printBannerHeader() {
         //given
-        String header = "*****************************\r\n" +
-                        "****** Customer totals ******\r\n" +
-                        "*****************************\r\n";
+        String header = "*****************************" + LINE_SEPARATOR +
+                        "****** Customer totals ******" + LINE_SEPARATOR +
+                        "*****************************" + LINE_SEPARATOR;
         //when
         OwingPrinter printOwing = new OwingPrinter();
         printOwing.printOwing("Jed", Collections.emptyList());
@@ -44,12 +46,11 @@ public class OwingPrinterTest {
     @Test
     public void printBannerContentWithOneOrder() {
         //given
-        String content = "name: Jed\r\n"+
-                "amount: 5.0\r\n";
+        String content = "name: Jed" + LINE_SEPARATOR+
+                "amount: 5.0" + LINE_SEPARATOR;
         //when
         List<Order> orders = new ArrayList<>();
-        Order orderVar = new Order(5);
-        orders.add(orderVar);
+        orders.add(new Order(5));
 
         OwingPrinter printOwing = new OwingPrinter();
         printOwing.printOwing("Jed", orders);
@@ -61,16 +62,13 @@ public class OwingPrinterTest {
     @Test
     public void printBannerContentWithThreeOrder() {
         //given
-        String content = "name: Jed\r\n"+
-                "amount: 25.0\r\n";
+        String content = "name: Jed" + LINE_SEPARATOR+
+                "amount: 25.0" + LINE_SEPARATOR;
         //when
         List<Order> orders = new ArrayList<>();
-        Order orderOne = new Order(5);
-        Order orderTwo = new Order(10);
-        Order orderThree = new Order(10);
-        orders.add(orderOne);
-        orders.add(orderTwo);
-        orders.add(orderThree);
+        orders.add(new Order(5));
+        orders.add(new Order(10));
+        orders.add(new Order(10));
 
         OwingPrinter printOwing = new OwingPrinter();
         printOwing.printOwing("Jed", orders);

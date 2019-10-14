@@ -9,7 +9,6 @@ public class OwingPrinter {
 
         printHeader();
         printDetails(name, elements);
-
     }
 
     void printHeader() {
@@ -18,7 +17,7 @@ public class OwingPrinter {
         System.out.println("*****************************");
     }
 
-    public double printOwings(Iterator<Order> elements) {
+    double printOwings(Iterator<Order> elements) {
         double outstanding = 0.0;
 
         while (elements.hasNext()) {
