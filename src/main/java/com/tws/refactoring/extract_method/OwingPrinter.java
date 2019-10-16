@@ -17,6 +17,11 @@ public class OwingPrinter {
         System.out.println("*****************************");
     }
 
+    void printDetails(String name, Iterator<Order> elements) {
+        System.out.println("name: " + name);
+        System.out.println("amount: " + printOwings(elements));
+    }
+
     double printOwings(Iterator<Order> elements) {
         double outstanding = 0.0;
 
@@ -25,11 +30,6 @@ public class OwingPrinter {
             outstanding += each.getAmount();
         }
         return outstanding;
-    }
-
-    void printDetails(String name, Iterator<Order> elements) {
-        System.out.println("name: " + name);
-        System.out.println("amount: " + printOwings(elements));
     }
 }
 
