@@ -1,6 +1,5 @@
 package com.tws.refactoring.extract_method;
 
-import org.hamcrest.core.Is;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -11,7 +10,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertTrue;
 
 public class OwingPrinterTest {
     private static final String LINE_SEPARATOR = System.lineSeparator();
